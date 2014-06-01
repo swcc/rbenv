@@ -27,6 +27,11 @@ You just need to install OS dependent resources if any.
 
 ## Creating your own images based on this one
 
+A trusted build is available publicly from [index.docker.io](https://index.docker.io)
+```
+docker pull swcc/rbenv
+```
+
 If you want to inherit from this Docker for your own, whichever user you will use for the service you want to run, he should inherit the correct
 RBenv configuration. If any issue, you can still source this file: ```/etc/profile.d/rbenv.sh```.
 
