@@ -32,10 +32,10 @@ RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
 # We don't want documentation to be generated for ruby
 ENV CONFIGURE_OPTS --disable-install-doc
 # Normally should do a simple
-# RUN rbenv install 2.1.0
+# RUN rbenv install 2.0.0-p598
 # But there is a bug in readline that was supposed to be fixed by the following gist
-RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.0
-RUN rbenv global 2.1.0
+RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.0.0-p598
+RUN rbenv global 2.0.0-p598
 RUN rbenv rehash
 
 # Not necessary but so cool
