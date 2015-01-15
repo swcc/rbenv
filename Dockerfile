@@ -38,7 +38,7 @@ RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv i
 RUN rbenv global 2.1.1
 RUN rbenv rehash
 
-# Not necessary but so cool
-#RUN gem install pry bundler -N
-#RUN rbenv rehash
+# Installer at least bundler
+RUN gem install bundler -N
+RUN rbenv rehash
 
