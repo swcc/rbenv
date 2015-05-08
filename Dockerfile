@@ -23,21 +23,12 @@ RUN git clone https://github.com/sstephenson/rbenv.git /opt/rbenv
 RUN git clone https://github.com/sstephenson/ruby-build.git /opt/rbenv/plugins/ruby-build
 ENV PATH /opt/rbenv/bin:/opt/rbenv/shims:$PATH
 ENV RBENV_ROOT /opt/rbenv
-RUN /opt/rbenv/plugins/ruby-build/install.sh
 RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
 
 # We don't want documentation to be generated for ruby
 ENV CONFIGURE_OPTS --disable-install-doc
-# Normally should do a simple
-# RUN rbenv install 2.0.0-p353
-# But there is a bug in readline that was supposed to be fixed by the following gist
-# RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.0.0-p353
-# It's actually not working, but fortunately this one is: https://gist.github.com/LeonB/10503374/raw
-RUN curl -fsSL https://gist.github.com/LeonB/10503374/raw | rbenv install --patch 2.0.0-p353
-RUN rbenv global 2.0.0-p353
+RUN rbenv install 2.2.2
+RUN rbenv global 2.2.2
 RUN rbenv rehash
 
-# Not necessary but so cool
-RUN gem install pry bundler -N
-RUN rbenv rehash
 
